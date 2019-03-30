@@ -15,6 +15,12 @@ class TestRealVideo(unittest.TestCase):
         self.assertEqual(excerpt, self.download.get_captions(
             video_id)[:len(excerpt)])
 
+    def test_video_french(self):
+        video_id = 'VLAMC3NJsP4'
+        excerpt = 'J\'ai fini Jouons quelques LoL (League of Legends). Oh mo'
+        self.assertEqual(excerpt, self.download.get_captions(
+            video_id, 'fr')[:len(excerpt)])
+
     def test_failed(self):
         video_id = '12323123123'
         with self.assertRaises(DownloadException):

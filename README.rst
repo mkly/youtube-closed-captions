@@ -18,13 +18,9 @@ To Use
 
    video_id = 'jNQXAC9IVRw'
    download = Download()
-   captions = download.get_captions(video_id)
-
-
-Known Issues
-============
-
-This is currently just written for the English(en-US) language as that is what my use case required. Definitely would love to see it support all languages
+   # Language is optional and default to "en"
+   # YouTube uses "en","fr" not "en-US", "fr-FR"
+   captions = download.get_captions(video_id, 'en')
 
 Development
 ===========

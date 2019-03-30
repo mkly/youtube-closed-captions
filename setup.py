@@ -11,7 +11,7 @@ with open('README.rst') as f:
 
 setup(
     name='Youtube Closed Captions',
-    version='0.1.2',
+    version='0.2.0',
     description='Download closed captions from Youtube',
     long_description=readme,
     author='Mike Lay',
@@ -19,7 +19,7 @@ setup(
     license=license,
     packages=find_packages(exclude=('test')),
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Programming Language :: Python :: 3.5',
         'License :: OSI Approved :: Apache Software License'
     ]

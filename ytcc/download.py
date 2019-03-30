@@ -7,6 +7,7 @@ from os import remove
 import re
 from urllib.parse import urlencode
 from ytcc.storage import Storage
+from ytcc.fake_logger import FakeLogger
 
 
 class Download():
@@ -16,29 +17,34 @@ class Download():
         self.opts = {
             'skip_download': True,
             'writeautomaticsub': True,
-            'outtmpl': 'subtitle_%(id)s'
+            'outtmpl': 'subtitle_%(id)s',
+            'logger': FakeLogger()
         }
         self.opts.update(opts)
 
     def update_opts(self, opts: dict) -> None:
         self.opts.update(opts)
 
-    def get_captions(self, video_id: str) -> str:
-        result = self.get_result(video_id)
+    def get_captions(self, video_id: str, language: str = 'en') -> str:
+        result = self.get_result(video_id, language)
 
         if result != 0:
             raise Exception(
                 'Unable to download and extract captions: {0}'.format(result))
 
-        storage = Storage(video_id)
+        storage = Storage(video_id, language)
         file_path = storage.get_file_path()
         with open(file_path) as f:
-            output = self.get_captions_from_output(f.read())
+            output = self.get_captions_from_output(f.read(), language)
         storage.remove_file()
         return output
 
-    def get_result(self, video_id: str) -> int:
-        with youtube_dl.YoutubeDL(self.opts) as ydl:
+    def get_result(self, video_id: str, language: str = 'en') -> int:
+        opts = self.opts
+        if language:
+            opts['subtitleslangs'] = [*opts.get('subtitleslangs', []), language]
+
+        with youtube_dl.YoutubeDL(opts) as ydl:
             try:
                 return ydl.download([self.get_url_from_video_id(video_id)])
             except youtube_dl.utils.DownloadError as err:
@@ -55,11 +61,11 @@ class Download():
     def get_url_from_video_id(self, video_id: str) -> str:
         return '{0}?{1}'.format(self.base_url, urlencode({'v': video_id}))
 
-    def get_captions_from_output(self, output: str) -> str:
+    def get_captions_from_output(self, output: str, language: str = 'en') -> str:
         reader = WebVTTReader()
 
         temp_final = ''
-        for caption in reader.read(output).get_captions('en-US'):
+        for caption in reader.read(output, language).get_captions(language):
             stripped = self.remove_time_from_caption(
                 str(caption).replace(r'\n', "\n"))
             temp_final += stripped
