@@ -17,7 +17,7 @@ class TestRealVideo(unittest.TestCase):
 
     def test_video_french(self):
         video_id = 'VLAMC3NJsP4'
-        excerpt = 'J\'ai fini Jouons quelques LoL (League of Legends). Oh mo'
+        excerpt = 'J\'ai fini Jouons à LoL (League of Legends). Oh mon Dieu,'
         self.assertEqual(excerpt, self.download.get_captions(
             video_id, 'fr')[:len(excerpt)])
 
