@@ -4,6 +4,9 @@ Youtube Closed Captions
 Downloads the closed captions(subtitles) from Youtube videos
 ============================================================
 
+.. image:: https://circleci.com/gh/mkly/youtube-closed-captions.svg?style=svg
+  :target: https://circleci.com/gh/mkly/youtube-closed-captions
+
 Requirements
 ~~~~~~~~~~~~
 
