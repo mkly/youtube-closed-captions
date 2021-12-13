@@ -2,7 +2,7 @@ beautifulsoup4==4.7.1
 cssutils==1.0.2
 enum34==1.1.6
 future==0.17.1
-lxml==4.3.1
+lxml==4.6.5
 mock==2.0.0
 pbr==5.1.2
 pycaption==1.0.1
