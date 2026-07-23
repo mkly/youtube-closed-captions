@@ -4,13 +4,13 @@ Youtube Closed Captions
 Downloads the closed captions(subtitles) from Youtube videos
 ============================================================
 
-.. image:: https://circleci.com/gh/mkly/youtube-closed-captions.svg?style=svg
-  :target: https://circleci.com/gh/mkly/youtube-closed-captions
+.. image:: https://github.com/mkly/youtube-closed-captions/actions/workflows/ci.yml/badge.svg
+  :target: https://github.com/mkly/youtube-closed-captions/actions/workflows/ci.yml
 
 Requirements
 ~~~~~~~~~~~~
 
-* Currently requires python >= 3.5
+* Currently requires Python >= 3.8
 
 To Use
 ~~~~~~
@@ -36,6 +36,9 @@ Run Tests
 .. code:: bash
 
    ## All tests
+   pytest
+
+   ## Or using unittest
    python -m unittest discover
 
    ## Unit tests
@@ -43,4 +46,5 @@ Run Tests
 
    ## Functional tests
    python -m unittest discover test/functional
+
 
