@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from __future__ import unicode_literals
-import youtube_dl
+import yt_dlp as youtube_dl
 from pycaption import WebVTTReader
 from os import remove
 import re
