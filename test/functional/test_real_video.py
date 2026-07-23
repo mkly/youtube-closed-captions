@@ -1,9 +1,11 @@
 # -*- coding: UTF-8 -*-
 
+import os
 import unittest
 from ytcc.download import Download, DownloadException
 
 
+@unittest.skipIf(os.environ.get('CI') == 'true', 'Skip live YouTube network tests in CI (YouTube blocks datacenter IPs)')
 class TestRealVideo(unittest.TestCase):
 
     def setUp(self):
