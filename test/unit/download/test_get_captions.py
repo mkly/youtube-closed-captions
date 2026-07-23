@@ -13,7 +13,7 @@ class TestCaptions(unittest.TestCase):
         download = Download()
         m = mock_open(read_data=FIXTURE_WEBVTT)
 
-        with patch('ytcc.download.open', m, create=True):
+        with patch('ytcc.download.open', m, create=True), patch('os.path.exists', return_value=True):
             with patch('ytcc.storage.Storage.remove_file', Mock()):
                 download.get_result = Mock(return_value=0)
                 self.assertEqual(FIXTURE_WEBVTT_STRIPPED,

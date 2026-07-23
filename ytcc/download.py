@@ -70,11 +70,21 @@ class Download():
     def get_captions_from_output(self, output: str, language: str = 'en') -> str:
         reader = WebVTTReader()
 
+        # Sanitize WebVTT output for pycaption header validation
+        lines = output.splitlines()
+        if lines and lines[0].startswith('WEBVTT'):
+            header_end = 1
+            while header_end < len(lines) and lines[header_end].strip() != '' and '-->' not in lines[header_end]:
+                header_end += 1
+            lines = [lines[0], ''] + lines[header_end:]
+            output = '\n'.join(lines)
+
         temp_final = ''
         for caption in reader.read(output, language).get_captions(language):
             stripped = self.remove_time_from_caption(
                 str(caption).replace(r'\n', "\n"))
             temp_final += stripped
+
 
         final = ''
         previous = ''

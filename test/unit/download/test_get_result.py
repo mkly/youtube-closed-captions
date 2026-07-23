@@ -12,7 +12,7 @@ class TestGetResult(unittest.TestCase):
         ydl = Mock()
         ydl.download = Mock(return_value=0)
 
-        with patch('youtube_dl.YoutubeDL.__enter__', return_value=ydl):
+        with patch('ytcc.download.youtube_dl.YoutubeDL.__enter__', return_value=ydl):
             download = Download()
             self.assertEqual(0, download.get_result(video_id))
             ydl.download.assert_called_with(
