@@ -10,7 +10,7 @@ Downloads the closed captions(subtitles) from Youtube videos
 Requirements
 ~~~~~~~~~~~~
 
-* Currently requires Python >= 3.8
+* Currently requires Python >= 3.12
 
 To Use
 ~~~~~~
