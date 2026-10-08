@@ -3,4 +3,8 @@ __pycache__/
 env/
 venv/
 .crabbox/
-
+.venv/
+build/
+dist/
+*.egg-info/
+.pytest_cache/

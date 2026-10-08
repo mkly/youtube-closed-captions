@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 import unittest
-from ytcc.download import Download
+from ytcaptions.download import Download
 from unittest.mock import patch, Mock
 
 
@@ -12,7 +12,7 @@ class TestGetResult(unittest.TestCase):
         ydl = Mock()
         ydl.download = Mock(return_value=0)
 
-        with patch('ytcc.download.youtube_dl.YoutubeDL.__enter__', return_value=ydl):
+        with patch('ytcaptions.download.youtube_dl.YoutubeDL.__enter__', return_value=ydl):
             download = Download()
             self.assertEqual(0, download.get_result(video_id))
             ydl.download.assert_called_with(

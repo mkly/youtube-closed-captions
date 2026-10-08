@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 import unittest
-from ytcc.storage import Storage
+from ytcaptions.storage import Storage
 from unittest.mock import patch
 
 

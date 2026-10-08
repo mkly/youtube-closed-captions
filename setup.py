@@ -10,13 +10,19 @@ with open('README.rst') as f:
     readme = f.read()
 
 setup(
-    name='Youtube Closed Captions',
-    version='0.2.0',
+    name='youtube-closed-captions',
+    version='1.0.0',
     description='Download closed captions from Youtube',
     long_description=readme,
+    long_description_content_type='text/x-rst',
     author='Mike Lay',
     author_email='mike@mkly.io',
     license=license,
+    python_requires='>=3.12',
+    url='https://github.com/mkly/youtube-closed-captions',
+    project_urls={
+        'Issues': 'https://github.com/mkly/youtube-closed-captions/issues',
+    },
     packages=find_packages(exclude=('test', 'test.*')),
     install_requires=[
         'yt-dlp>=2023.1.1',
@@ -26,14 +32,9 @@ setup(
         'lxml>=4.9.0',
     ],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
         'License :: OSI Approved :: Apache Software License'
     ]
 )
-

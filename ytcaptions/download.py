@@ -5,8 +5,8 @@ from pycaption import WebVTTReader
 import os
 import re
 from urllib.parse import urlencode
-from ytcc.storage import Storage
-from ytcc.fake_logger import FakeLogger
+from .storage import Storage
+from .fake_logger import FakeLogger
 
 
 class Download():

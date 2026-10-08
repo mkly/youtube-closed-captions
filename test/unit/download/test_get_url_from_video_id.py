@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 import unittest
-from ytcc.download import Download
+from ytcaptions.download import Download
 
 
 class TestDownloadGetUrlFromVideoId(unittest.TestCase):

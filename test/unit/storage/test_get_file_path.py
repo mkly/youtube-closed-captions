@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 import unittest
-from ytcc.storage import Storage
+from ytcaptions.storage import Storage
 
 
 class TestGetFilePath(unittest.TestCase):
